@@ -9,6 +9,9 @@ print(csvpath)
 numrows = 0
 total = 0
 
+topprofit = ['', 0]
+toploss = ['', 0]
+
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter = ',')
     headers = next(csvreader)
@@ -17,8 +20,16 @@ with open(csvpath) as csvfile:
     for row in csvreader:
         print(row)
         
+        current = int(row[1])
+
         numrows += 1
-        total += int(row[1])
+        total += current
+
+        if current > topprofit[1]:
+            topprofit[0] = row[0]
+            topprofit[1] = current
+            print(topprofit[0])
 
 print("Total Months: " + str(numrows))
-print("Total: " + str(total))
+print("Total: $" + str(total))
+print("Greatest Increase in Profits: " + topprofit[0] + " (" + str(topprofit[1]) + ")")
