@@ -6,11 +6,11 @@ csvpath = os.path.join('Resources', 'budget_data.csv') # ./Resources/budget_data
 numrows = 0
 total = 0
 
-topprofit = ['', 0]
-toploss = ['', 0]
-
 net_change = []
 net_change_months = 0
+
+topprofit = ['', 0]
+toploss = ['', 0]
 
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter = ',')
