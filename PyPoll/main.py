@@ -28,7 +28,7 @@ printlist = [
 ]
 for candidate in candidates:
     numvotes = votecounts[candidates.index(candidate)]
-    printlist.append(candidate + ": " + str(round(float(numvotes)/float(numrows)*100, 3)) + "% (" + str(numvotes) + ")") # Calculate vote percentage for each candidate
+    printlist.append(candidate + ": " + str("{:.3%}".format(float(numvotes)/float(numrows))) + " (" + str(numvotes) + ")") # Calculate vote percentage for each candidate
 printlist.extend(
     [
         "-------------------------",

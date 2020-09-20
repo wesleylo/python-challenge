@@ -32,7 +32,7 @@ printlist = [
     "----------------------------",
     "Total Months: " + str(numrows),
     "Total: $" + str(total),
-    "Average Change: $" + str(round(float(total)/float(numrows), 2)), # Calculate float avg and round to 2 ndigits
+    "Average Change: $" + str("{:.2f}".format(float(total)/float(numrows))), # Calculate float avg and format to 2 ndigits
     "Greatest Increase in Profits: " + topprofit[0] + " ($" + str(topprofit[1]) + ")",
     "Greatest Decrease in Profits: " + toploss[0] + " ($" + str(toploss[1]) + ")"
 ]
