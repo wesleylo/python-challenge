@@ -10,7 +10,6 @@ votecounts = []
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter = ',')
     headers = next(csvreader) # Store the header row
-    print(headers)
 
     for row in csvreader:
         currentcandidate = row[2]
@@ -20,14 +19,41 @@ with open(csvpath) as csvfile:
             votecounts.append(0)
 
         votecounts[candidates.index(currentcandidate)] += 1 # Find index of current candidate and iterate corresponding votecount
-        
-print("Election Results")
-print("-------------------------")
-print("Total Votes: " + str(numrows))
-print("-------------------------")
+
+
+
+# print("Election Results")
+# print("-------------------------")
+# print("Total Votes: " + str(numrows))
+# print("-------------------------")
+# for candidate in candidates:
+#     numvotes = votecounts[candidates.index(candidate)]
+#     print(candidate + ": " + str(round(float(numvotes)/float(numrows)*100, 3)) + "% (" + str(numvotes) + ")") # Calculate vote percentage
+# print("-------------------------")
+# print("Winner: " + str(candidates[votecounts.index(max(votecounts))])) # Display candidate with matching index to the max votecount
+# print("-------------------------")
+
+
+
+printlist = [
+    "Election Results",
+    "-------------------------",
+    "Total Votes: " + str(numrows),
+    "-------------------------"
+]
 for candidate in candidates:
     numvotes = votecounts[candidates.index(candidate)]
-    print(candidate + ": " + str(round(float(numvotes)/float(numrows)*100, 3)) + "% (" + str(numvotes) + ")") # Calculate vote percentage
-print("-------------------------")
-print("Winner: " + str(candidates[votecounts.index(max(votecounts))])) # Display candidate with matching index to the max votecount
-print("-------------------------")
+    printlist.append(candidate + ": " + str(round(float(numvotes)/float(numrows)*100, 3)) + "% (" + str(numvotes) + ")") # Calculate vote percentage for each candidate
+printlist.extend([
+    "-------------------------",
+    "Winner: " + str(candidates[votecounts.index(max(votecounts))]), # Display candidate with matching index to the max votecount
+    "-------------------------"]
+)
+
+f = open(os.path.join('analysis', "anaysis.txt"), "w+")
+
+for row in printlist:
+    print(row)
+    f.write(str(row) + "\n")
+
+f.close()
