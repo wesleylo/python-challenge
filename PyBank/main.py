@@ -37,7 +37,7 @@ printlist = [
     "Greatest Decrease in Profits: " + toploss[0] + " ($" + str(toploss[1]) + ")"
 ]
 
-f = open(os.path.join('analysis', "anaysis.txt"), "w+")
+f = open(os.path.join('analysis', "anaysis.txt"), "w+") # Open and overwrite or create file
 
 for row in printlist:
     print(row)
