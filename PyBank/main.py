@@ -35,6 +35,9 @@ with open(csvpath) as csvfile:
             toploss[1] = current
             print(toploss[0])    
 
+
+print("Financial Analysis")
+print("----------------------------")
 print("Total Months: " + str(numrows))
 print("Total: $" + str(total))
 print("Greatest Increase in Profits: " + topprofit[0] + " (" + str(topprofit[1]) + ")")
