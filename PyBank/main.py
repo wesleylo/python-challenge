@@ -30,6 +30,12 @@ with open(csvpath) as csvfile:
             topprofit[1] = current
             print(topprofit[0])
 
+        if current < toploss[1]:
+            toploss[0] = row[0]
+            toploss[1] = current
+            print(toploss[0])    
+
 print("Total Months: " + str(numrows))
 print("Total: $" + str(total))
 print("Greatest Increase in Profits: " + topprofit[0] + " (" + str(topprofit[1]) + ")")
+print("Greatest Decrease in Profits: " + toploss[0] + " (" + str(toploss[1]) + ")")
